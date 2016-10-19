@@ -129,9 +129,10 @@ declare module 'typedgram-bot' {
                 *
                 * @param  {string}         token              Telegram Bot API Token
                 * @param  {IServerOptions} server             Server configuration to stablish a connection to Telegram servers.
+                * @param {string|Stream} certificate          certificate to be used for the webhook
                 * @return {[TelegramTypedBot]}                A instance of a bot.
                 */
-            constructor(token: string, server: IServerOptions);
+            constructor(token: string, server: IServerOptions, certificate?: Stream|string);
             protected _request(path: string, qsopt?: IQs): Promise<Message>;
             /**
                 * When you send a message, set this on the resolution of the promise to wait for the user response of that message.
