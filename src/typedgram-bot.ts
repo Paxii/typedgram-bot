@@ -137,11 +137,12 @@ export class TelegramTypedBot extends TelegramBot {
      *
      * @param  {string}         token              Telegram Bot API Token
      * @param  {IServerOptions} server             Server configuration to stablish a connection to Telegram servers.
+     * @param certificate
      * @return {[TelegramTypedBot]}                A instance of a bot.
      */
-    constructor(token: string, server: IServerOptions) {
+    constructor(token: string, server: IServerOptions, certificate?: Stream|string) {
         super(token, { webHook: { port: server.port, host: server.host } })
-        this.setWebHook(server.domain + ':443/bot' + token)
+        this.setWebHook(server.domain + ':443/bot' + token, certificate)
 
         this.getMe().then(me => {
             this.id = me.id

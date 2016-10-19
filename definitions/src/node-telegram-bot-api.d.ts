@@ -651,8 +651,9 @@ declare module 'node-telegram-bot-api' {
          * See: https://core.telegram.org/bots/api#setwebhook
          *
          * @param {string} url URL where Telegram will make HTTP Post. Leave empty to delete webHook.
+         * @param {Stream|string} certificate public key to be used for the webhook
          */
-        public setWebHook(url?: string): void
+        public setWebHook(url?: string, certificate?: Stream|string): void
 
         /**
          * Use this method to receive incoming updates using long polling.
